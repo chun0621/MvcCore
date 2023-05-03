@@ -4,10 +4,11 @@
     ViewData["Title"] = "List";
 }
 
-<h2>產品清單</h2>
+<h2>購物</h2>
 
 <p>
-    @Html.ActionLink("檢視購物車", "CartView")
+    @*@Html.ActionLink("檢視購物車", "CartView")*@
+    <a asp-action="CartView">檢視購物車</a>
 </p>
 <table class="table">
     <thead>

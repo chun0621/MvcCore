@@ -11,6 +11,8 @@ namespace prjMvcCoreDemo.Models
             get { return _product; }
             set { _product= value; } 
         }
+
+        //建構子直接new，確保不會是null
         public CProductWrap()
         {
             _product = new TProduct();

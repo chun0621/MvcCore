@@ -60,7 +60,7 @@
                     @Html.DisplayFor(modelItem => item.FPrice)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FImagePath)
+                    <img src="~/images/@item.FImagePath" width="80" height="60">
                 </td>
                 <td>
                         @Html.ActionLink("修改", "Edit", new { id=item.FId }) |

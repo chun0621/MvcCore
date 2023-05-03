@@ -6,7 +6,13 @@ namespace prjMvcCoreDemo.Controllers
 {
     public class ProductController : Controller
     {
-        IWebHostEnvironment _enviro;
+        private IWebHostEnvironment _enviro;
+
+        public ProductController(IWebHostEnvironment p)
+        {
+            _enviro = p;
+        }
+
 
         public IActionResult List(CKeywordViewModel vm)
         {
@@ -66,7 +72,7 @@ namespace prjMvcCoreDemo.Controllers
                 if (p.photo != null)
                 {
                     string photoName = Guid.NewGuid().ToString() + ".jpg";
-                    string path = _enviro.WebRootPath + "Images/" + photoName;
+                    string path = _enviro.WebRootPath + "/images/" + photoName;
                     p.photo.CopyTo(new FileStream(path,FileMode.Create));
                     prod.FImagePath = photoName;
                 }

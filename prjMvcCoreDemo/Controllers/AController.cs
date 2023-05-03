@@ -34,6 +34,8 @@ namespace prjMvcCoreDemo.Controllers
             return x.FName + "<br/>" + x.FPhone;
         }
 
+        //注入寫法，全域變數用建構子變成p
+        //也可在Program內直接帶入
         public AController(IWebHostEnvironment p)
         {
             _enviro = p;
@@ -44,9 +46,12 @@ namespace prjMvcCoreDemo.Controllers
             return View();
         }
 
-        public ActionResult fileUploadDemo(FormFile photo)
+        [HttpPost]
+        public ActionResult fileUploadDemo(IFormFile photo)
         {
+            //WebRootPath是客戶環境(IIS)，
             string path = _enviro.WebRootPath + "/images/001.jpg";
+            //建立串流(FuileStream)，要兩個參數，路徑、若不存在則建立
             photo.CopyTo(new FileStream(path,FileMode.Create));
 
             return View();

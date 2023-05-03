@@ -5,6 +5,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 
 var app = builder.Build();
+//注入直接帶入寫法,A是Class , new A 帶入I
+//builder.Services.AddTransient(I,A);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
